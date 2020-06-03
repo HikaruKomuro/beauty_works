@@ -1,0 +1,2 @@
+class FreelanceStatus < ApplicationRecord
+end
