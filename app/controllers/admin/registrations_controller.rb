@@ -7,9 +7,9 @@ class Admin::RegistrationsController < ApplicationController
   def create
     @admin = Admin.new(admin_params)
     if @admin.save
-      remembeer
+      # remember
       flash[:success] = "#{@admin.name}を管理者として登録しました"
-      redirect_to admin_url(@admin)
+      redirect_to admin_registration_url(@admin)
     else
       render :new
     end

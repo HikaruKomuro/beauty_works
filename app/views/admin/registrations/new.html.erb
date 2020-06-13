@@ -1,18 +1,7 @@
 <div class="container small-container">
 <h2 class="center form-title">管理者　新規作成</h2>
 
-<%= form_with(model: @admin, url: new_admin_registration_path, local: true) do |f| %>
-
-<%= f.label :name, "名前", class: "form-label" %>
-<%= f.text_field :name, class: "form-input form-control" %>
-<%= f.label :email, "メールアドレス", class: "form-label" %>
-<%= f.email_field :email, class: "form-input form-control" %>
-<%= f.label :line_id, "LINE ID", class: "form-label" %>
-<%= f.text_field :line_id, class: "form-input form-control" %>
-<%= f.label :password, "パスワード", class: "form-label" %>
-<%= f.password_field :password, class: "form-input form-control" %>
-<%= f.label :password_confirmation, "パスワード確認", class: "form-label" %>
-<%= f.password_field :password_confirmation, class: "form-input form-control" %>
-<%= f.submit "新規作成", class: "btn form-input" %>
+<%= form_with(model: @admin, url: admin_registrations_path, local: true) do |f| %>
+  <%= render "form", f: f%>
 <% end %>
 </div>
