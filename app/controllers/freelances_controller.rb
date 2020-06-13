@@ -1,5 +1,6 @@
 class FreelancesController < ApplicationController
   def new
+    @freelance = Freelance.new
   end
   def create
   end

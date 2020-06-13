@@ -1,2 +1,19 @@
 <h1>Freelances#new</h1>
 <p>Find me in app/views/freelances/new.html.erb</p>
+<%= form_with model: @freelance, local: true do |f| %>
+<%= javascript_include_tag 'jquery-ui-1.8.custom.min.js' %>
+<%# 日本語を利用できるようにしておきます。 %>
+<%= javascript_include_tag 'jquery.ui.datepicker-ja.js' %>
+
+<%= stylesheet_link_tag 'jquery-ui-1.8.custom.css' %>
+
+<%# テキストフィールドにid指定します。 %>
+<%= f.text_field :date, :id => 'datepicker' %>
+<% end %>
+
+<%# id指定したテキストフィールドに、datepickerを適用します。 %>
+<script type="text/javascript">
+  $(function() {
+    $("#datepicker").datepicker();
+  });
+</script>

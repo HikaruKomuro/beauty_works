@@ -6,6 +6,7 @@ class CreateOwners < ActiveRecord::Migration[5.1]
       t.string :line_id
       t.string :address
       t.string :tel
+      t.string :password_digest
 
       t.timestamps
     end

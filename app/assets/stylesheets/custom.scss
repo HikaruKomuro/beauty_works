@@ -1,6 +1,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.small-container{
+  width: 50%;
+  margin-top: 50px;
+  border: solid 1px #000000;
+  border-radius: 40px;
+}
+
+.form-title {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 .center {
   text-align: center;
+  margin-top: 50px;
+}
+
+.form-label{
+  margin-left: 10px;
+}
+
+.form-input{
+  margin-bottom: 30px;
 }

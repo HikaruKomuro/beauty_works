@@ -2,3 +2,26 @@
 
 <h1>StaticPages#top</h1>
 <p>Find me in app/views/static_pages/top.html.erb</p>
+<%=link_to "new", new_freelance_path %>
+<p id="test"></p>
+
+<%= l(DateTime.current) %>
+<%= t("helpers.select.prompt") %>
+
+<button>ボタン</button>
+ 
+<script>
+    $('button').click(function() {
+        console.log('clickによるイベント処理');
+    })
+    $('button').on('click', function() {
+        console.log('onによるイベント処理');
+    })
+ 
+    $('button').off('click');
+</script>
+
+<script>
+  $("#test").html("ミッションコンプリート！");,
+  $("#test").css("color","red");
+</script>
