@@ -11,6 +11,7 @@ gem 'jbuilder',     '~> 2.5'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'i18n'
+gem 'jp_prefecture'
 
 group :development, :test do
   gem 'sqlite3'

@@ -1,27 +1,79 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.small-container{
-  width: 50%;
-  margin-top: 50px;
-  border: solid 1px #000000;
-  border-radius: 40px;
+.form-new{
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .form-title {
   margin-top: 50px;
   margin-bottom: 50px;
+  font-family: 'Hiragino Maru Gothic ProN';
 }
 
-.center {
-  text-align: center;
-  margin-top: 50px;
+.field{
+  margin-bottom: 20px;
 }
 
 .form-label{
-  margin-left: 10px;
+  font-weight: 600;
+  font-family: 'Hiragino Maru Gothic ProN';
+  color: limegreen;
 }
 
 .form-input{
-  margin-bottom: 30px;
+  border: solid 1px silver;
+  border-radius: 10px;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
 }
+.form-input:hover{
+  transition: 0.2s;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.5);
+}
+
+.form-memo{
+  font-size: 5px;
+}
+
+.form-submit{
+  transition: color .3s, background.3s, box-shadow .3s, transform .3s;
+}
+
+
+.component-form{
+  margin: 20px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.component-image{
+  border-radius: 20px 20px 0 0;
+}
+
+.component-text{
+  padding: 20px;
+}
+
+.menu-form{
+  margin-right: 40px;
+}
+
+.img-box {
+  position: relative;
+}
+.img-box .active {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.img-box:hover .hover{
+  z-index: 3;
+}
+
+.img-box:active .press{
+  z-index: 3;
+}
+

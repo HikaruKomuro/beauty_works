@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(version: 20200603080650) do
     t.string "email"
     t.string "line_id"
     t.string "password_digest"
+    t.string "remember_digest"
+    t.string "post_code"
+    t.string "address_prefecture"
+    t.string "address_city"
+    t.string "address_branch"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,22 +48,18 @@ ActiveRecord::Schema.define(version: 20200603080650) do
     t.index ["freelances_id"], name: "index_choices_on_freelances_id"
   end
 
-  create_table "freelance_statuses", force: :cascade do |t|
-    t.integer "freelances_id"
-    t.boolean "eyelist"
-    t.boolean "hairdresser"
-    t.boolean "manicurist"
-    t.integer "belongs"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["freelances_id"], name: "index_freelance_statuses_on_freelances_id"
-  end
-
   create_table "freelances", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "line_id"
     t.string "password_digest"
+    t.integer "postcode"
+    t.integer "preficture_code"
+    t.string "address_city"
+    t.string "address_street"
+    t.string "building"
+    t.string "skill"
+    t.integer "belongs"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,9 +68,13 @@ ActiveRecord::Schema.define(version: 20200603080650) do
     t.string "name"
     t.string "email"
     t.string "line_id"
-    t.string "address"
     t.string "tel"
     t.string "password_digest"
+    t.integer "postcode"
+    t.integer "preficture_code"
+    t.string "address_city"
+    t.string "address_street"
+    t.string "building"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -77,9 +82,13 @@ ActiveRecord::Schema.define(version: 20200603080650) do
   create_table "shops", force: :cascade do |t|
     t.integer "owners_id"
     t.string "name"
-    t.string "address"
     t.string "tel"
     t.boolean "display"
+    t.integer "postcode"
+    t.integer "preficture_code"
+    t.string "address_city"
+    t.string "address_street"
+    t.string "building"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owners_id"], name: "index_shops_on_owners_id"

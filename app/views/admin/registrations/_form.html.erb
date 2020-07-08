@@ -1,20 +1,44 @@
-<% if @admin.errors.any? %>
-  <div class="alert alert-danger">
-    <ul>
-      <% @admin.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-<%= f.label :name, "名前", class: "form-label" %>
-<%= f.text_field :name, class: "form-input form-control" %>
-<%= f.label :email, "メールアドレス", class: "form-label" %>
-<%= f.email_field :email, class: "form-input form-control" %>
-<%= f.label :line_id, "LINE ID", class: "form-label" %>
-<%= f.text_field :line_id, class: "form-input form-control" %>
-<%= f.label :password, "パスワード", class: "form-label" %>
-<%= f.password_field :password, class: "form-input form-control" %>
-<%= f.label :password_confirmation, "パスワード確認", class: "form-label" %>
-<%= f.password_field :password_confirmation, class: "form-input form-control" %>
-<%= f.submit "新規作成", class: "btn btn-primary form-input" %>
+
+<div class="field">
+  <%= f.label :name, "名前", class: "form-label" %><br>
+  <%= f.text_field :name, class: "form-input" %>
+  <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
+</div>
+<div class="field">
+  <%= f.label :email, "メール", class: "form-label" %><br>
+  <%= f.email_field :email, class: "form-input " %>
+</div>
+<div class="field">
+  <%= f.label :line_id, "LINE ID", class: "form-label" %><br>
+  <%= f.text_field :line_id, class: " form-input text-center" %>
+</div>
+<div class="field">
+  <!-- ▼郵便番号入力フィールド(7桁) -->
+  <%= f.label :post_code, "郵便番号", class: "form-label" %><br>
+  <input type="text" name="post_code" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','address_prefecture','address_city');" class="form-input ">
+</div>
+<div class="field">  
+  <!-- ▼住所入力フィールド(都道府県) -->
+  <%= f.label :address_prefecture, "都道府県", class: "form-label" %><br>
+  <input type="text" name="address_prefecture" size="20" class="form-input">
+  <p class="form-memo">例）東京都</p>
+</div>
+<div class="field">
+  <!-- ▼住所入力フィールド(都道府県以降の住所) -->
+  <%= f.label :address_city, "市町村・町名・枝番", class: "form-label" %><br>
+  <input type="text" name="address_city" class="form-input ">
+  <p class="form-memo">例）千代田区丸の内１−１−１</p>
+</div>
+<div class="field">  
+  <!-- ▼住所入力フィールド(町名以降の住所) -->
+  <%= f.label :address_branch, "建物名", class: "form-label" %><br>
+  <input type="text" name="address_branch" class="form-input ">
+</div>
+<div class="field">  
+  <%= f.label :password, "パスワード(6文字以上)", class: "form-label" %><br>
+  <%= f.password_field :password, class: "form-input  type-edit" %>
+</div>
+<div class="field">
+  <%= f.label :password_confirmation, "パスワード確認", class: "form-label" %><br>
+  <%= f.password_field :password_confirmation, class: "form-input " %>
+</div>

@@ -1,19 +1,19 @@
 <h1>Freelances#new</h1>
 <p>Find me in app/views/freelances/new.html.erb</p>
 <%= form_with model: @freelance, local: true do |f| %>
-<%= javascript_include_tag 'jquery-ui-1.8.custom.min.js' %>
-<%# 日本語を利用できるようにしておきます。 %>
-<%= javascript_include_tag 'jquery.ui.datepicker-ja.js' %>
-
-<%= stylesheet_link_tag 'jquery-ui-1.8.custom.css' %>
-
-<%# テキストフィールドにid指定します。 %>
-<%= f.text_field :date, :id => 'datepicker' %>
 <% end %>
 
-<%# id指定したテキストフィールドに、datepickerを適用します。 %>
-<script type="text/javascript">
-  $(function() {
-    $("#datepicker").datepicker();
-  });
-</script>
+
+<div class="img-box">
+  <a href="https://access.line.me/oauth2/v2.1/authorize?
+  response_type=code
+  &client_id=1654334517
+  &redirect_uri= https://56a4565e356e4431b5567ee59d9c4338.vfs.cloud9.us-east-2.amazonaws.com/admin/session/line_login
+  &state=12345abcde
+  &scope=profile%20openid
+  &nonce=09876xyz">
+  <%= image_tag 'line/btn_login_base.png'%>
+  <%= image_tag 'line/btn_login_hover.png', class: "active hover" %>
+  <%= image_tag 'line/btn_login_press.png', class: "active press" %>
+  </a>
+</div>
