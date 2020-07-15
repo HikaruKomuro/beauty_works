@@ -16,6 +16,7 @@
   <!-- ▼郵便番号入力フィールド(7桁) -->
   <%= f.label :post_code, "郵便番号", class: "form-label" %><br>
   <input type="text" name="post_code" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','address_prefecture','address_city');" class="form-input ">
+  <p class="form-memo">例）1000005</p>
 </div>
 <div class="field">  
   <!-- ▼住所入力フィールド(都道府県) -->

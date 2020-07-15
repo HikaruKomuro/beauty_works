@@ -12,6 +12,12 @@ class Admin < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
+  before_save { self.post_code = post_code.downcase }
+  validates :post_code, presence: true, length: { is: 7 }
+  validates :address_prefecture, presence: true
+  before_save { self.address_city = address_city.upcase }
+  validates :address_city, presence: true, length: { maximum: 50 }
+  validates :address_branch, length: { maximum: 50 }
   
   def Admin.digest(string)
     cost =

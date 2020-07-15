@@ -4,6 +4,6 @@
   <%= form_with(model: @admin, url: admin_registrations_path, local: true) do |f| %>
     <%= render "errors_form", object: @admin %>
     <%= render "form", f: f %>
-    <%= f.submit "新規作成", class: "btn form-submit form-input" %>
+    <%= f.submit "新規作成", class: "btn form-submit" %>
   <% end %>
 </div>

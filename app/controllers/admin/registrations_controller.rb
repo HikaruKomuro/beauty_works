@@ -8,8 +8,9 @@ class Admin::RegistrationsController < ApplicationController
   
   def create
     @admin = Admin.new(admin_params)
-    if @admin.update!(params_address)
-    debugger      # remember
+    if @admin.save
+      @admin.update!(params_address)
+      # remember
       
       flash[:success] = "#{@admin.name}を管理者として登録しました"
       redirect_to admin_registration_url(@admin)
