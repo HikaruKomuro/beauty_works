@@ -1,0 +1,76 @@
+<%= provide(:title, "Top") %>
+<div class="container">
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark mt-3 mb-3">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">探す</a>
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">新規登録</a>
+                </li>
+            </ul>
+      </div>
+    </nav>
+  </header>
+
+  <img src="https://s3-ap-northeast-1.amazonaws.com/ese.image/using/ttt+(1).jpg" alt="トップイメージ" width="100%" height="300px" border="0"><span>a</span> </img>
+  
+  <div class="text-center">はじめに</div>
+  <div class="text-center">
+    <%= link_to "フリーランスの方", "#", class: "menu-form" %>
+    <%= link_to "オーナーの方", "#", class: "menu-form" %>
+    <%=link_to "会員登録", new_freelance_path %>
+  </div>
+  
+  
+  <div class="component">
+    <div class="row">
+      <div class="col-md-4">
+        <a href="https://s3-ap-northeast-1.amazonaws.com/ese.image/using/%E3%81%AF%E3%81%A6%E3%81%AA%E5%A5%B3%E6%80%A7.jpg">
+          <div class="component-form">
+            <img src="https://s3-ap-northeast-1.amazonaws.com/ese.image/using/start.jpg" alt="" width="100%" height="" border="0" class="component-image" />
+            <div class="component-text">
+              <h4>はじめに</h4>
+              <p>このサイトについてこのサイトについてこのサイトについて</p>
+            </div>
+          </div>
+        </a>
+      </div>
+     
+      <div class="col-md-4">
+        <a href="https://s3-ap-northeast-1.amazonaws.com/ese.image/using/%E3%81%AF%E3%81%A6%E3%81%AA%E5%A5%B3%E6%80%A7.jpg">
+        <div class="component-form">
+          <img src="https://s3-ap-northeast-1.amazonaws.com/ese.image/using/start.jpg" alt="" width="100%" height="" border="0" class="component-image" />
+          <div class="component-text">
+            <h4>はじめに</h4>
+            <p>このサイトについて</p>
+          </div>
+        </div>
+        </a>
+      </div>
+      
+      <div class="col-md-4">
+        <a href="https://s3-ap-northeast-1.amazonaws.com/ese.image/using/%E3%81%AF%E3%81%A6%E3%81%AA%E5%A5%B3%E6%80%A7.jpg">
+        <div class="component-form">
+          <img src="https://s3-ap-northeast-1.amazonaws.com/ese.image/using/start.jpg" alt="" width="100%" height="" border="0" class="component-image" />
+          <div class="component-text">
+            <h4>はじめに</h4>
+            <p>このサイトについて</p>
+          </div>
+        </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<%= l(DateTime.current) %>
+<%= t("helpers.select.prompt") %>
+
+</div>
+
