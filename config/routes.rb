@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     
   
   namespace :admin do
-    get ":id/management/top", to: "managements#top"
+    get ":id/management/show", to: "managements#show"
     resources :registrations, expect: [:show]
     resources :sessions, only: [:new, :create, :destroy]
     namespace :session do
