@@ -1,2 +1,10 @@
-Admin.create!(email: "email@gmail.com", name: "管理者", password: "password", password_confirmation: "password")
+Admin.create!(email: "email@gmail.com", 
+							name: "管理者",
+							line_id: "12345",
+							password: "password",
+							password_confirmation: "password",
+							post_code: "1000005",
+							address_prefecture: "東京都",
+							address_city: "千代田区丸の内",
+							address_branch: "丸の内ビル１F")
 puts "管理者を作成しました！"
