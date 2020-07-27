@@ -1,4 +1,4 @@
-<div class="container small-container">
+<div class="form-new">
 	<h2 class="center form-title">管理者　プロフィール編集</h2>
 	<%= form_with(model: @admin, url: admin_registration_path(@admin), method: :patch, local: true) do |f| %>
 		<%= render "errors_form", object: @admin %>
