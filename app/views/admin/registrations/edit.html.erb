@@ -3,6 +3,6 @@
 	<%= form_with(model: @admin, url: admin_registration_path(@admin), method: :patch, local: true) do |f| %>
 		<%= render "errors_form", object: @admin %>
 	  <%= render "form", f: f %>
-	  <%= f.submit "更新する", class: "btn btn-primary form-input" %>
+	  <%= f.submit "更新する", class: "btn form-submit" %>
 	<% end %>
 </div>
