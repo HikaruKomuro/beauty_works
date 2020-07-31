@@ -55,14 +55,6 @@ class Admin < ApplicationRecord
     end
   end
     
-  def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
-      admin = new
-      admin.attributes = row.to_hash.slice(*updatable_attributes)
-      admin.save!
-    end
-  end
-    
   def self.updatable_attributes
     ["name", "email", "password"]
   end

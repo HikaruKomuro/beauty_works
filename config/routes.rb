@@ -18,15 +18,19 @@ Rails.application.routes.draw do
   end
   
   # フリーランス会員ページ
-  resources :freelances do
-    resources :choices
+  namespace :freelances do
+    resources :registrations
+    resources :sessions, only: [:new, :create, :destroy]
   end
   
   
   # オーナー会員ページ
-  resources :owners do
-    resources :shops
+  namespace :owners do
+    resources :registrations
+    resources :sessions, only: [:new, :create, :destroy]
   end
+  # 店舗ページ
+  resources :shops
   
   post "line_login", to: "session#line_log"
   
