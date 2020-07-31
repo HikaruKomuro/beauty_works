@@ -13,7 +13,7 @@ class Admin::RegistrationsController < ApplicationController
     @admin.address_city = params[:address_city]
     @admin.address_branch = params[:address_branch]
     if @admin.save
-      remember(@admin)
+      remember_admin(@admin)
       flash[:success] = "#{@admin.name}を管理者として登録しました"
       redirect_to admin_url(@admin)
     else
@@ -54,7 +54,4 @@ class Admin::RegistrationsController < ApplicationController
       params.require(:admin).permit(:name, :email, :line_id, :password, :password_confirmation, :postcode, :prefecture_name, :address_city, :address_street, :address_building)
     end
     
-    def address_params
-      params.permit(:post_code, :address_prefecture, :address_city, :address_branch)
-    end
 end

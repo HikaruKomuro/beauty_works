@@ -1,7 +1,7 @@
 class CreateAccesses < ActiveRecord::Migration[5.1]
   def change
     create_table :accesses do |t|
-      t.references :sho
+      t.references :shops
       t.string :line
       t.string :station
       t.integer :walk_time

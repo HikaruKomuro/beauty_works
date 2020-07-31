@@ -4,14 +4,14 @@ class Admin::SessionsController < ApplicationController
   before_action :set_admin, only: [:edit, :destroy]
   
   def new
-    
+    @admin = Admin.new
   end
   
   def create
     admin = Admin.find_by(email: params[:session][:email].downcase)
     if admin && admin.authenticate(params[:session][:password])
       log_in admin
-      remember admin
+      remember_admin admin
       redirect_to admin_url(admin)
     else
       flash.now[:danger] = "ログインできませんでした"
@@ -27,10 +27,9 @@ class Admin::SessionsController < ApplicationController
   end
   
   def destroy
-    log_out
+    log_out if logged_in?
     flash[:danger] = "ログアウトしました"
     redirect_to new_admin_session_url
   end
-  
   
 end
