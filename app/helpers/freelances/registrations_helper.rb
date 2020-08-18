@@ -1,0 +1,2 @@
+module Freelances::RegistrationsHelper
+end

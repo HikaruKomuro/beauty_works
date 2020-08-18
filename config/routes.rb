@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     
   
   namespace :admin do
-    get ":id/management/top", to: "managements#top"
+    get ":id/management/show", to: "managements#show"
     resources :registrations, expect: [:show]
     resources :sessions, only: [:new, :create, :destroy]
     namespace :session do
@@ -18,16 +18,22 @@ Rails.application.routes.draw do
   end
   
   # フリーランス会員ページ
-  resources :freelances do
-    resources :choices
+  namespace :freelances do
+    resources :registrations
+    resources :sessions, only: [:new, :create, :destroy]
   end
   
   
   # オーナー会員ページ
-  resources :owners do
-    resources :shops
+  namespace :owners do
+    resources :registrations
+    resources :sessions, only: [:new, :create, :destroy]
   end
   
+  # 店舗ページ
+  resources :shops
+  
+  # ライン
   post "line_login", to: "session#line_log"
   
 end

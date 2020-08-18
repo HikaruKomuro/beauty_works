@@ -1,9 +1,18 @@
-<h1>Freelances#new</h1>
-<p>Find me in app/views/freelances/new.html.erb</p>
-<%= form_with model: @freelance, local: true do |f| %>
-<% end %>
+<div class="form-new">
+  <h2 class="form-title">オーナー登録</h2>
+  <%= form_with(model: @owner, url: owners_registrations_path, local: true) do |f| %>
+    <%= render "errors_form", object: @owner %>
+    <%= render "form", f: f %>
+    <%= f.submit "新規作成", class: "btn form-submit" %>
+  <% end %>
+</div>
 
 
+
+
+
+
+<!--lineログイン-->
 <div class="img-box">
   <a href="https://access.line.me/oauth2/v2.1/authorize?
   response_type=code

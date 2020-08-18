@@ -1,0 +1,58 @@
+
+<div class="field">
+  <%= f.label :name, "スペース名", class: "form-label" %><br>
+  <%= f.text_field :name, class: "form-input" %>
+  <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
+</div>
+
+<div class="field">
+  <%= f.label :email, "メール", class: "form-label" %><br>
+  <%= f.email_field :email, class: "form-input" %>
+</div>
+
+<div class="field">
+  <%= f.label :line_id, "LINE ID", class: "form-label" %><br>
+  <%= f.text_field :line_id, class: " form-input text-center" %>
+</div>
+
+<div class="field">
+  <%= f.label :phone_number, "電話番号", class: "form-label" %><br>
+  <%= f.text_field :phone_number, class: " form-input text-center" %>
+  <p class="form-memo">例）08012345678</p>
+</div>
+
+<div class="field">
+  <!-- ▼郵便番号入力フィールド(7桁) -->
+  <%= f.label :post_code, "郵便番号", class: "form-label" %><br>
+  <input f.text_field name="post_code" onKeyUp="AjaxZip3.zip2addr(this,'','address_prefecture','address_city');" class="form-input" value="<%= @shop.post_code %>" >
+  <p class="form-memo">例）1000005</p>
+</div>
+
+<div class="field">  
+  <!-- ▼住所入力フィールド(都道府県) -->
+  <%= f.label :address_prefecture, "都道府県", class: "form-label" %><br>
+  <input f.text_field name="address_prefecture" size="20" class="form-input" value="<%= @shop.address_prefecture %>" >
+  <p class="form-memo">例）東京都</p>
+</div>
+
+<div class="field">
+  <!-- ▼住所入力フィールド(都道府県以降の住所) -->
+  <%= f.label :address_city, "市町村・町名", class: "form-label" %><br>
+  <input f.text_field name="address_city" class="form-input" value="<%= @shop.address_city %>" >
+  <p class="form-memo">例）千代田区丸の内</p>
+</div>
+
+<div class="field">
+  <!-- ▼住所入力フィールド(都道府県以降の住所) -->
+  <%= f.label :address_branch, "枝番", class: "form-label" %><br>
+  <input f.text_field name="address_branch" class="form-input" value="<%= @shop.address_city %>" >
+  <p class="form-memo">例）１−１−１</p>
+</div>
+
+<div class="field">  
+  <!-- ▼住所入力フィールド(町名以降の住所) -->
+  <%= f.label :address_building, "建物名", class: "form-label" %><br>
+  <input f.text_field name="address_building" class="form-input" value="<%= @shop.address_branch %>" >
+  <p class="form-memo">例）丸の内ビルディング○○階</p>
+</div>
+

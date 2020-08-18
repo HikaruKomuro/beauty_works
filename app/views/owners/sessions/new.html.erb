@@ -1,0 +1,7 @@
+<div class="form-new">
+	<h2 class="center form-title">ログイン</h2>
+	
+	<%= form_with(scope: :session, url: owners_sessions_path, method: :post, local: true) do |f| %>
+	  <%= render "form", f: f %>
+	<% end %>
+</div>

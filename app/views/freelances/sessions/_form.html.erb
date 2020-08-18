@@ -1,0 +1,12 @@
+<!--input表示-->
+<div class="field">
+	<%= f.label :email, "メールアドレス", class: "form-label" %><br>
+	<%= f.email_field :email, class: "form-input", required: true %>
+</div>
+<div class="field">
+	<%= f.label :password, "パスワード", class: "form-label" %><br>
+	<%= f.password_field :password, class: "form-input", required: true %>
+</div>
+<div class="field">
+<%= f.submit "ログイン", class: "btn form-submit" %>
+</div>

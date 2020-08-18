@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20200603080650) do
 
   create_table "accesses", force: :cascade do |t|
-    t.integer "sho_id"
+    t.integer "shops_id"
     t.string "line"
     t.string "station"
     t.integer "walk_time"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20200603080650) do
     t.integer "bus_stop"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["sho_id"], name: "index_accesses_on_sho_id"
+    t.index ["shops_id"], name: "index_accesses_on_shops_id"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -53,11 +53,11 @@ ActiveRecord::Schema.define(version: 20200603080650) do
     t.string "email"
     t.string "line_id"
     t.string "password_digest"
-    t.integer "postcode"
-    t.integer "preficture_code"
+    t.string "remember_digest"
+    t.string "post_code"
+    t.string "address_prefecture"
     t.string "address_city"
-    t.string "address_street"
-    t.string "building"
+    t.string "address_branch"
     t.string "skill"
     t.integer "belongs"
     t.datetime "created_at", null: false
@@ -68,13 +68,13 @@ ActiveRecord::Schema.define(version: 20200603080650) do
     t.string "name"
     t.string "email"
     t.string "line_id"
-    t.string "tel"
+    t.string "phone_number"
     t.string "password_digest"
-    t.integer "postcode"
-    t.integer "preficture_code"
+    t.string "remember_digest"
+    t.string "post_code"
+    t.string "address_prefecture"
     t.string "address_city"
-    t.string "address_street"
-    t.string "building"
+    t.string "address_branch"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,13 +82,14 @@ ActiveRecord::Schema.define(version: 20200603080650) do
   create_table "shops", force: :cascade do |t|
     t.integer "owners_id"
     t.string "name"
-    t.string "tel"
+    t.string "email"
+    t.string "line_id"
+    t.string "phone_number"
     t.boolean "display"
-    t.integer "postcode"
-    t.integer "preficture_code"
+    t.string "post_code"
+    t.string "address_prefecture"
     t.string "address_city"
-    t.string "address_street"
-    t.string "building"
+    t.string "address_branch"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owners_id"], name: "index_shops_on_owners_id"

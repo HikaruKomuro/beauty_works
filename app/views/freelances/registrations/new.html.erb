@@ -1,0 +1,28 @@
+<div class="form-new">
+  <h2 class="center form-title">ユーザー登録</h2>
+  <%= form_with(model: @freelance, url: freelances_registrations_path, local: true) do |f| %>
+    <%= render "errors_form", object: @freelance %>
+    <%= render "form", f: f %>
+    <%= f.submit "新規作成", class: "btn form-submit" %>
+  <% end %>
+</div>
+
+
+
+
+
+
+<!--lineログイン-->
+<div class="img-box">
+  <a href="https://access.line.me/oauth2/v2.1/authorize?
+  response_type=code
+  &client_id=1654334517
+  &redirect_uri= https://56a4565e356e4431b5567ee59d9c4338.vfs.cloud9.us-east-2.amazonaws.com/admin/session/line_login
+  &state=12345abcde
+  &scope=profile%20openid
+  &nonce=09876xyz">
+  <%= image_tag 'line/btn_login_base.png'%>
+  <%= image_tag 'line/btn_login_hover.png', class: "active hover" %>
+  <%= image_tag 'line/btn_login_press.png', class: "active press" %>
+  </a>
+</div>
