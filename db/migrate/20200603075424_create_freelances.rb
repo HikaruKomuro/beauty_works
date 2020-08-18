@@ -10,7 +10,6 @@ class CreateFreelances < ActiveRecord::Migration[5.1]
       t.string :address_prefecture
       t.string :address_city
       t.string :address_branch
-      t.string :building
       t.string :skill
       t.integer :belongs  #所属店舗
 

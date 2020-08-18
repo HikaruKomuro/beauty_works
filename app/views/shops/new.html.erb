@@ -1,2 +1,12 @@
-<h1>Shops#new</h1>
-<p>Find me in app/views/shops/new.html.erb</p>
+<div class="form-new">
+  <h2 class="form-title">スペース登録</h2>
+  <%= form_with(model: @shop, url: shops_path, local: true) do |f| %>
+    <%= render "errors_form", object: @shop %>
+    <%= render "form", f: f %>
+    <%= f.submit "新規作成", class: "btn form-submit" %>
+  <% end %>
+</div>
+
+
+
+

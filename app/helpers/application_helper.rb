@@ -17,6 +17,10 @@ module ApplicationHelper
     !current_freelance.nil?
   end
   
+  def owner_logged_in?
+    !current_owner.nil?
+  end
+  
   def current_admin
     if (admin_id = session[:admin_id])
       @current_admin ||= Admin.find_by(id: admin_id)
@@ -41,6 +45,18 @@ module ApplicationHelper
     end
   end
   
+  def current_owner
+    if (owner_id = session[:owner_id])
+      @current_owner ||= Owner.find_by(id: owner_id)
+    elsif (owner_id = cookies.signed[:owner_id])
+    	owner = Owner.find_by(id: owner_id)
+    	if owner && owner.authenticated?(cookies[:remember_token])
+    		log_in owner
+    		@current_owner = owner
+    	end
+    end
+  end
+  
   def remember_admin(admin)
     admin.remember
     cookies.permanent.signed[:admin_id] = admin.id
@@ -51,6 +67,12 @@ module ApplicationHelper
     freelance.remember
     cookies.permanent.signed[:freelance_id] = freelance.id
     cookies.permanent[:remember_token] = freelance.remember_token
+  end
+  
+  def remember_owner(owner)
+    owner.remember
+    cookies.permanent.signed[:owner_id] = owner.id
+    cookies.permanent[:remember_token] = owner.remember_token
   end
   
   
