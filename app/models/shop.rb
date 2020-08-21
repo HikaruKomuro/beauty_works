@@ -1,5 +1,11 @@
 class Shop < ApplicationRecord
   belongs_to :owner
+  has_many :fees, through: :shop_fees
+  has_many :shop_fees
+  has_many :options, through: :shop_options
+  has_many :shop_options
+  
+ 
   has_many :access, dependent: :destroy
   
   validates :name, presence: true, length: { maximum: 50 }
