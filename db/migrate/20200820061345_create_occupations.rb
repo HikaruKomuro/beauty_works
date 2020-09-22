@@ -5,6 +5,7 @@ class CreateOccupations < ActiveRecord::Migration[5.1]
       t.references :freelance
       
       t.string :name
+      t.string :ja
       t.timestamps
     end
   end

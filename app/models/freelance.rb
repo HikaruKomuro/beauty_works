@@ -1,5 +1,7 @@
 class Freelance < ApplicationRecord
-  has_many :choice, dependent: :destroy
+  has_many :occupations, through: :freelance_occupations
+  has_many :freelance_occupations, dependent: :destroy
+  has_many :reservations
   
   attr_accessor :remember_token
   
@@ -20,6 +22,8 @@ class Freelance < ApplicationRecord
   validates :address_city, presence: true, length: { maximum: 50 }
   before_save { self.address_branch = address_branch.upcase }
   validates :address_branch, length: { maximum: 50 }
+  before_save { self.address_building = address_building.upcase }
+  validates :address_building, length: { maximum: 50 }
   
   def Freelance.digest(string)
     cost =
