@@ -3,8 +3,6 @@
 
 .form-new{
   text-align: center;
-  padding-left: 50px;
-  padding-right: 50px;
 }
 
 .form-title {
@@ -21,6 +19,7 @@
   font-size: 18px;
   font-family: 'Hiragino Maru Gothic ProN';
   color: limegreen;
+  margin-bottom: 10px;
 }
 
 .form-input{
@@ -59,6 +58,14 @@
   box-shadow: 0px 0px 0px rgba(0,0,0,0);
 }
 
+.error-area{
+  text-align: center;
+  width: 400px;
+}
+
+.right{
+  text-align: right;
+}
 
 .component-form{
   margin: 20px;

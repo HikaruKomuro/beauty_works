@@ -1,0 +1,259 @@
+<div class="field">
+  <%= f.label :name, "スペース名（必須）", class: "form-label" %><br>
+  <%= f.text_field :name, class: "form-input", required: true %>
+  <i class="fa fa-envelope fa-lg fa-fw"></i>
+</div>
+
+<div class="field">
+  <%= f.label :email, "メール", class: "form-label" %><br>
+  <%= f.email_field :email, class: "form-input" %>
+</div>
+
+<div class="field">
+  <%= f.label :line_id, "LINE ID", class: "form-label" %><br>
+  <%= f.text_field :line_id, class: " form-input text-center" %>
+</div>
+
+<div class="field">
+  <%= f.label :phone_number, "電話番号（必須）", class: "form-label" %><br>
+  <%= f.text_field :phone_number, class: " form-input text-center", required: true %>
+  <p class="form-memo">例）08012345678</p>
+</div>
+
+<div class="field">
+  <!-- ▼郵便番号入力フィールド(7桁) -->
+  <%= f.label :post_code, "郵便番号", class: "form-label" %><br>
+  <input f.text_field name="post_code" onKeyUp="AjaxZip3.zip2addr(this,'','address_prefecture','address_city','address_town');" class="form-input" value="<%= @shop.post_code %>" >
+  <p class="form-memo">例）1000005</p>
+</div>
+
+<div class="field">  
+  <!-- ▼住所入力フィールド(都道府県) -->
+  <%= f.label :address_prefecture, "都道府県", class: "form-label" %><br>
+  <input f.text_field name="address_prefecture" size="20" class="form-input" value="<%= @shop.address_prefecture %>" required="true" >
+  <p class="form-memo">例）東京都</p>
+</div>
+
+<div class="field">
+  <!-- ▼住所入力フィールド(都道府県以降の住所) -->
+  <%= f.label :address_city, "市区町村", class: "form-label" %><br>
+  <input f.text_field name="address_city" class="form-input" value="<%= @shop.address_city %>" required="true" >
+  <p class="form-memo">例）千代田区</p>
+</div>
+
+<div class="field">
+  <!-- ▼住所入力フィールド(都道府県以降の住所) -->
+  <%= f.label :address_town, "町名・枝番", class: "form-label" %><br>
+  <input f.text_field name="address_town" class="form-input" value="<%= @shop.address_town %>" required="true" >
+  <p class="form-memo">例）丸の内１−１−１</p>
+</div>
+
+<div class="field">  
+  <%= f.label :address_building, "建物名・その他", class: "form-label" %><br>
+  <input f.text_field name="address_building" class="form-input" value="<%= @shop.address_branch %>" >
+  <p class="form-memo">例）丸の内ビルディング○○階</p>
+</div>
+
+<div class="field">
+  <div class="form-label">施術可能なもの</div>
+  <%= f.fields_for :occupation do |o| %>
+    <div class="form-occupation-checkbox">
+      <% @occupations.each do |oc| %>
+        <label class="occupation-checkbox"><%= o.check_box :"#{ oc.name }", value: 0 %><%= oc.ja %></label>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="field">
+  <%= f.label "営業時間/定休日", class: "form-label" %><br>
+  <table>
+    <thead>
+      <tr class="table_row">
+        <th class="table_field"></th>
+        <th class="table_field">open</th>
+        <th class="table_field">close</th>
+        <th class="table_field">定休日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table_row">
+        <th>mon</th>
+        <td><div class="mon_off_time"><%= f.time_select :mon_start, minute_step: 10, default: { hour: 10 } %></div></td>
+        <td><div class="mon_off_time"><%= f.time_select :mon_finish, minute_step: 10 %></div></td>
+        <td><div class="mon_off_check"><%= f.check_box :mon_off %></div></td>
+      </tr>
+      <tr class="table_row">
+        <th>tue</th>
+        <td><div class="tue_off_time"><%= f.time_select :tue_start, minute_step: 10, default: { hour: 10 } %></td>
+        <td><div class="tue_off_time"><%= f.time_select :tue_finish, minute_step: 10 %></td>
+        <td><%= f.check_box :tue_off %></td>
+      </tr>
+      <tr class="table_row">
+        <th>wed</th>
+        <td><div class="wed_off_time"><%= f.time_select :wed_start, minute_step: 10, default: { hour: 10 } %></td>
+        <td><div class="wed_off_time"><%= f.time_select :wed_finish, minute_step: 10, default: { hour: 20 } %></td>
+        <td><%= f.check_box :wed_off %></td>
+      </tr>
+      <tr class="table_row">
+        <th>thu</th>
+        <td><div class="thu_off_time"><%= f.time_select :thu_start, minute_step: 10, default: { hour: 10 } %></td>
+        <td><div class="thu_off_time"><%= f.time_select :thu_finish, minute_step: 10, default: { hour: 20 } %></td>
+        <td><%= f.check_box :thu_off %></td>
+      </tr>
+      <tr class="table_row">
+        <th>fri</th>
+        <td><div class="fri_off_time"><%= f.time_select :fri_start, minute_step: 10, default: { hour: 10 } %></td>
+        <td><div class="fri_off_time"><%= f.time_select :fri_finish, minute_step: 10, default: { hour: 20 } %></td>
+        <td><%= f.check_box :fri_off %></td>
+      </tr>
+      <tr class="table_row">
+        <th>sat</th>
+        <td><div class="sat_off_time"><%= f.time_select :sat_start, minute_step: 10, default: { hour: 10 } %></td>
+        <td><div class="sat_off_time"><%= f.time_select :sat_finish, minute_step: 10, default: { hour: 20 } %></td>
+        <td><%= f.check_box :sat_off %></td>
+      </tr>
+      <tr class="table_row">
+        <th>sun</th>
+        <td><div class="sun_off_time"><%= f.time_select :sun_start, minute_step: 10, default: { hour: 10 } %></td>
+        <td><div class="sun_off_time"><%= f.time_select :sun_finish, minute_step: 10, default: { hour: 20 } %></td>
+        <td><%= f.check_box :sun_off %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="field">
+  <div class="form-label">定休日の追加</div>
+  <%= f.text_field :other_holiday, class: "form-input" %>
+  <p class="form-memo">例）第２、第４火曜日</p>
+</div>
+
+<div class="field">
+  <div class="form-label">アピールポイント</div>
+   <%= f.text_area :appeal, size: "60x20" %>
+</div>
+
+<div class="field">
+  <div class="form-label">備考</div>
+  <%= f.text_area :memo, size: "60x10" %>
+</div>
+
+<div class="field">
+  <div class="form-label">サロンからの顧客紹介</div>
+  <label class="introduction_form"><%= f.radio_button :introduction, "true" %>あり</label>
+  <label><%= f.radio_button :introduction, "false" %>なし</label>
+</div>
+
+<div class="field">
+  <div class="form-label">知人代理の可否</div>
+  <label class="introduction_form"><%= f.radio_button :share, "true" %>可能</label>
+  <label><%= f.radio_button :share, "false" %>不可</label>
+</div>
+
+<div class="field">
+  <div class="form-label">お客様　性別制限</div>
+  <label class="introduction_form"><%= f.radio_button :customer_sex, "0" %>男女可</label>
+  <label class="introduction_form"><%= f.radio_button :customer_sex, "1" %>女性のみ</label>
+  <label><%= f.radio_button :customer_sex, "2" %>男性のみ</label>
+</div>
+
+<div class="field">
+  <div class="form-label">施術者　性別制限</div>
+  <label class="introduction_form"><%= f.radio_button :worker_sex, "0" %>男女可</label>
+  <label class="introduction_form"><%= f.radio_button :worker_sex, "1" %>女性のみ</label>
+  <label><%= f.radio_button :worker_sex, "2" %>男性のみ</label>
+</div>
+
+<div class="field">
+  <div class="form-label">施設使用料</div>
+  <table>
+    <thead>
+      <tr>
+        <th class="text-center">プラン</th>
+        <th class="text-center">料金</th>
+        <th class="text-center">表示</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @length.each_with_index do |length, index| %>
+        <tr>
+          <td><%= f.text_field "plan#{index}", value: length, class: "text-center" %></td>
+          <td><%= f.number_field "pay#{index}", min: 100, max: 999999, step: 50, class: "form-control" %></td>
+          <td><%= f.check_box "apply#{index}", class: "form-control" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="field">
+  <div class="form-label">オプション</div>
+  <div class ="row">
+    <div class="option_title">＜サロン設備＞</div>
+    <% @options_facility.each_with_index do |facility, index| %>
+      <label class="col-xs-6 col-md-3 option_element"><%= f.check_box "facility#{index}" %><%= facility.name %></label>
+    <% end %>
+  </div>
+  <div>
+    <% @options.pluck(:specific).uniq.compact.each do |specific| %>
+      <div class="option_title">＜<%= Occupation.find_by(name: specific).ja %>(施術者)＞</div>
+      <div class ="row">
+        <% @options_practitioner.where(specific: specific).each_with_index do |op, index| %> 
+          <label class="col-xs-6 col-md-3 option_element"><%= f.check_box "p_#{specific}_#{index}" %><%= op.name %></label>
+        <% end %>
+      </div>
+      <div class="option_title">＜<%= Occupation.find_by(name: specific).ja %>(お客様)＞</div>
+      <div class ="row">
+        <% @options_guest.where(specific: specific).each_with_index do |og, index| %>
+          <label class="col-xs-6 col-md-3 option_element"><%= f.check_box "g_#{specific}_#{index}" %><%= og.name %></label>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="option_title">＜共通(施術者)＞</div>
+  <div class ="row">　
+    <% @options_practitioner.where(specific: nil).each_with_index do |op, index| %> 
+      <label class="col-xs-6 col-md-3 option_element"><%= f.check_box "p_common_#{index}" %><%= op.name %></label>
+    <% end %>
+  </div>
+  <div class="option_title">＜共通(お客様)＞</div>
+  <div class ="row">
+    <% @options_guest.where(specific: nil).each_with_index do |og, index| %>
+      <label class="col-xs-6 col-md-3 option_element"><%= f.check_box "g_common_#{index}" %><%= og.name %></label>
+    <% end %>
+  </div>
+  
+  <div class="option_title">＜有料オプション＞</div>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th class="text-center">オプション名</th>
+          <th class="text-center">料金</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% 5.times do |index| %>
+          <tr class="pay_option_element">
+            <td><%= f.text_field "paid#{index}", size: "35", maxlength: "20" %></td>
+            <td><%= f.number_field "pay#{index}", min: 10, max: 99999, step: 10 %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+
+<div class="field">
+  <div class="form-label">アクセス</div>
+  <select class="access_area">
+  	<option value="" hidden>関東</option>
+  </select>
+  <select class="access_prefecture">
+  	<option value="" hidden>関東</option>
+  </select>
+</div>
+

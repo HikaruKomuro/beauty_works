@@ -29,9 +29,11 @@ Rails.application.routes.draw do
     resources :registrations
     resources :sessions, only: [:new, :create, :destroy]
   end
+  
   # 店舗ページ
   resources :shops
   
+  # ライン
   post "line_login", to: "session#line_log"
   
 end

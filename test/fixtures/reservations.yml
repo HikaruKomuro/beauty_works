@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  freelance: one
+  shop: one
+
+two:
+  freelance: two
+  shop: two
