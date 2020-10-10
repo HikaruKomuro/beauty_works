@@ -1,3 +1,46 @@
-// Place all the styles related to the shops controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.occupation-checkbox {
+	margin-right: 30px;
+	margin-top: 15px;
+}
+.center {
+  text-align: center;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+
+.table_field {
+  text-align: center;
+}
+
+.table_row {
+  height: 50px;
+}
+
+.holiday_form {
+  margin-right: 10px;
+}
+
+.introduction_form {
+  margin-right: 30px;
+}
+
+.fee_form{
+  width: 10px;
+}
+
+.option_title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.option_element {
+  margin-bottom: 20px;
+}
+
+.pay_option_element {
+  height: 50px;
+}

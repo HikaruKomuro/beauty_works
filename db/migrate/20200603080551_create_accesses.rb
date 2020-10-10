@@ -6,7 +6,6 @@ class CreateAccesses < ActiveRecord::Migration[5.1]
       t.string :station
       t.integer :walk_time
       t.integer :bus_time
-      t.integer :bus_stop
 
       t.timestamps
     end

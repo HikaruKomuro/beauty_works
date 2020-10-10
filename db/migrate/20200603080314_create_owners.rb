@@ -11,7 +11,8 @@ class CreateOwners < ActiveRecord::Migration[5.1]
       t.string :address_prefecture
       t.string :address_city
       t.string :address_branch
-      
+      t.string :address_building
+      t.string :note
 
       t.timestamps
     end

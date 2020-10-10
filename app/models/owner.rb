@@ -1,5 +1,5 @@
 class Owner < ApplicationRecord
-  has_many :shop, dependent: :destroy
+  has_many :shops, dependent: :destroy
   
   attr_accessor :remember_token
   
@@ -18,10 +18,9 @@ class Owner < ApplicationRecord
   before_save { self.post_code = post_code.downcase }
   validates :post_code, presence: true, length: { is: 7 }
   validates :address_prefecture, presence: true
-  before_save { self.address_city = address_city.upcase }
   validates :address_city, presence: true, length: { maximum: 50 }
-  before_save { self.address_branch = address_branch.upcase }
   validates :address_branch, length: { maximum: 50 }
+  validates :address_building, length: { maximum: 50 }
   
   def Owner.digest(string)
     cost =

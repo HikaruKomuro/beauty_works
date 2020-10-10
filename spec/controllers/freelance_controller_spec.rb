@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe FreelanceController, type: :controller do
+RSpec.describe Freelances::RegistrationsController, type: :controller do
 
 end
