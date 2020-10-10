@@ -22,7 +22,7 @@ class Freelance < ApplicationRecord
   validates :address_city, presence: true, length: { maximum: 50 }
   before_save { self.address_branch = address_branch.upcase }
   validates :address_branch, length: { maximum: 50 }
-  before_save { self.address_building = address_building.upcase }
+  # before_save { self.address_building = address_building.upcase }
   validates :address_building, length: { maximum: 50 }
   
   def Freelance.digest(string)
