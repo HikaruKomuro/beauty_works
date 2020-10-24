@@ -13,14 +13,14 @@
 ActiveRecord::Schema.define(version: 20200922022849) do
 
   create_table "accesses", force: :cascade do |t|
-    t.integer "shops_id"
+    t.integer "shop_id"
     t.string "line"
     t.string "station"
     t.integer "walk_time"
     t.integer "bus_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shops_id"], name: "index_accesses_on_shops_id"
+    t.index ["shop_id"], name: "index_accesses_on_shop_id"
   end
 
   create_table "admins", force: :cascade do |t|
