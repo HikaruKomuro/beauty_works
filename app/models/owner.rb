@@ -1,5 +1,5 @@
 class Owner < ApplicationRecord
-  has_many :shop, dependent: :destroy
+  has_many :shops, dependent: :destroy
   
   attr_accessor :remember_token
   
